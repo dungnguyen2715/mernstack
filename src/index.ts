@@ -1,19 +1,16 @@
-//import express to project
-import express from 'express'
-import databaseService from './services/database.services'
-import usersRouter from './routes/users.routers'
+import express from "express";
+import usersRouter from "./routes/users.routers";
 
-const app = express() // use express to create server, not use commonJS
-const port = 3000 //server will run on 3000
-databaseService.connect()
+const app = express();
+const port = 4000
+
 app.use(express.json())
-
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   res.send('hello world')
 })
 
-app.use("/user", usersRouter)
+app.use("/user", usersRouter);
 
-app.listen(port, () => {
-  console.log(`this project is running on port ${port} `)
+app.listen(() => {
+  console.log(`port is running on port ${port}`);
 })
