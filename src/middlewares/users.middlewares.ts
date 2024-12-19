@@ -6,7 +6,7 @@ export const loginValidator = (req: Request, res: Response, next: NextFunction) 
   console.log(req.body) //log it to see what is in it
   const { email, password } = req.body // destructuring
   if (!email || !password) {
-    return res.status(400).json({
+      res.status(400).json({
       error: 'Missing email or password'
     })
   }
