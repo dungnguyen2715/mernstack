@@ -25,7 +25,7 @@ class DatabaseService {
       throw err
     }
   }
-  get user(): Collection<User>{
+  get users(): Collection<User>{
     return this.db.collection(process.env.DB_USERS_COLLECTION as string)
   }
 }
