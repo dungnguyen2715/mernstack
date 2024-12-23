@@ -4,7 +4,7 @@ import databaseService from "./services/database.services";
 
 const app = express();
 const port = 4000
-databaseService.connect
+databaseService.connect()
 app.use(express.json())
 app.get("/", (req, res) => {
   res.send('hello world')
