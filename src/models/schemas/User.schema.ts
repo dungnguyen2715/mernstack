@@ -17,11 +17,11 @@ enum UserVerifyStatus {
     email: string;
     date_of_birth: Date;
     password: string;
-    created_at: Date;
+    created_at?: Date;
     updated_at: Date; //lúc mới tạo chưa có gì thì nên cho bằng create_at
-    email_verify_token: string; // jwt hoặc '' nếu đã xác thực email
-    forgot_password_token: string; // jwt hoặc '' nếu đã xác thực email
-    verify: UserVerifyStatus;
+    email_verify_token?: string; // jwt hoặc '' nếu đã xác thực email
+    forgot_password_token?: string; // jwt hoặc '' nếu đã xác thực email
+    verify?: UserVerifyStatus;
   
     bio: string; // optional
     location: string; // optional

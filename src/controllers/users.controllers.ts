@@ -21,6 +21,15 @@ export const loginController = (req: Request, res: Response) => {
 export const registerController = async (req: Request, res: Response) => {
   const { email, password } = req.body
   try {
+    const isEmailExist = await usersService.checkEmailExist(email);
+    if (isEmailExist) {
+      //sẽ không hiện được message vì Error có message là enumerable: false
+      const errorCustom = new Error("Email already exists"); //ta phải set lại enumerable: true
+      Object.defineProperty(errorCustom, "message", {
+        enumerable: true,
+      });
+      throw errorCustom;
+    }
     const result = await usersService.register({ email, password })
     console.log(result)
     res.status(200).json({
